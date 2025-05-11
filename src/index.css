@@ -11,3 +11,43 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Custom styles */
+.ant-layout-header {
+  background: #001529;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.ant-table-cell {
+  vertical-align: middle;
+}
+
+.ant-table-row-expand-icon-cell {
+  width: 48px;
+}
+
+.ant-descriptions-item-label {
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ant-table {
+    overflow-x: auto;
+  }
+  
+  .ant-space {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .ant-space > .ant-space-item {
+    margin-right: 0 !important;
+    margin-bottom: 8px !important;
+  }
+}

@@ -1,0 +1,3 @@
+@echo off
+echo Starting Inventory Management System...
+npm start 

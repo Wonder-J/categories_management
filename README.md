@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# 库存管理系统
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+这是一个前端库存管理系统，具有仓库管理、套餐管理和出库管理功能。
 
-## Available Scripts
+## 功能
 
-In the project directory, you can run:
+### 仓库管理
+- 展示所有已录入的商品
+- 支持添加、编辑和删除商品
+- 商品包含图片、价格、名称、ID、品牌和库存信息
+- 库存少于等于0时，库存数量会标红显示
 
-### `npm start`
+### 套餐管理
+- 展示所有套餐
+- 支持添加、编辑和删除套餐
+- 套餐由多个已入库商品组成
+- 显示套餐总价（所有商品价格的总和）
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 出库管理
+- 展示所有出库单
+- 支持创建、编辑和删除出库单
+- 创建出库单时可以选择多个套餐及其数量
+- 出库单包含出库单价格、备注、出库时间和出库单号
+- 修改出库单会影响到仓库中商品的库存
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 数据导入导出
+- 支持将所有数据导出为JSON文件保存到本地
+- 支持从本地JSON文件导入数据
+- 导入数据后会自动刷新页面以显示最新数据
 
-### `npm test`
+## 技术栈
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- TypeScript
+- Ant Design
+- React Router
+- 本地存储 (localStorage)
 
-### `npm run build`
+## 安装与运行
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 安装依赖
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 运行开发服务器
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 构建生产版本
+```bash
+npm run build
+```
 
-### `npm run eject`
+## 数据存储
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+所有数据都存储在浏览器的 localStorage 中，包括：
+- 商品数据
+- 套餐数据
+- 出库单数据
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+可以通过系统顶部的导入/导出按钮备份和恢复数据，避免因清除浏览器缓存而丢失数据。
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 注意事项
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 首次使用时，系统会自动初始化空的数据结构
+- 商品图片使用URL地址，可以使用网络图片地址
+- 出库操作会自动减少相应商品的库存
+- 编辑或删除出库单会恢复相应的库存数量
+- 定期导出数据，避免因清除浏览器缓存而丢失数据
